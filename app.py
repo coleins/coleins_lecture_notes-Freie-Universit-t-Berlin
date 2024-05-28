@@ -37,11 +37,11 @@
 # patient("Mike", 30, "existing")
 
 
-# RECEIVING INPUT.....................................
+# # RECEIVING INPUT.....................................
 
-# instead of print we are going to use input funtion
-# the parenthesis calls the input function
-# expression is a piece of code that provides a value
+# # instead of print we are going to use input funtion
+# # the parenthesis calls the input function
+# # expression is a piece of code that provides a value
 # name = input("What is your name? ")
 # # concatinate
 # print("Hi " + name)
@@ -50,7 +50,7 @@
 # color = input("What is your favorite color?")
 # print(name + " likes " + color)
 
-# # TYPE CONVERSION.....................................
+# # TYPE CONVERSION.........................................................
 
 # birth_year = input("Birth year: ")
 # age = 2024 - int(birth_year)
@@ -91,7 +91,7 @@
 # # the code below prints the indexes from 1 to -1 excluding the character at index -1
 # name = "Jennifer"
 # print(name[1:-1])
-# #FORMATTED STRINGS.........................................
+# #FORMATTED STRINGS.....................................................
 # # string concatination vs formatted string
 # first = "John"
 # last = "Smith"
@@ -122,7 +122,7 @@
 
 # # find a character or sequence of character in a string
 # # it is case sensitive
-# # in the case below we get 4 ecause the first "o" is at index 4
+# # in the case below we get 4 because the first "o" is at index 4
 # print(course.find("o"))
 # # we get 11 because beginners starts at index 11
 # print(course.find("Beginners"))
@@ -422,7 +422,7 @@
 
 # # NESTED LOOPS..................................................................
 # # means adding one loop into another loop
-# # for instrance generating a list of coordinates
+# # for instance generating a list of coordinates
 # # for the program below in the first iteration
 # for x in range (4):#outer loop- this range function generates num 0-4 but not inclusing 4
 #     for y in range(3):#inner loop- this range function generates num 0-3 but not inclusing 3
@@ -608,7 +608,23 @@
 # for character in phone:
 #   output +=  numericals.get(character, "!") + " "
 # print(output)
-# REVISIT EMOJI CONVERTER
+
+
+# # EMOJI CONVERTER Application
+# message = input(">") #we pass > as an indicator for user to enter message
+# words = message.split(" ") #this will split the string by a space so that the input is spaced. We pass the string with one space as a separator. the split method goes throgh the string and when it finds the " " it uses that as a boundary to separate the string into multiple words.
+# # we need to define a dictionary for mapping special characters like :) into a smilling face emoji.
+# emojis = {
+#     ":)": "😁",
+#     ":(": "😒"
+# }
+# output = ""
+# #we need to loop through the list get each word and potentially map it to an emoji using for loop. if there is no word supply a default emoji
+# for word in words:#we want to go to the dictionary and see if we have an item with word as a key if the item exists we use its value otherwise we want to use thesame word by supplying a default value. we use get method to supply a default value
+# # we need an output variable. we get the return value of our get method and add it to our output variable 
+#    output += emojis.get(word, word) + " "
+# print(output)
+
 
 # # FUNCTIONS...................................................................
 # # function is a container or a line of code that perform a specific task
@@ -692,18 +708,105 @@
 #     return a + b
 # print(sum(1, 2))
 
-# CREATING A REUSABLE FUNCTION......................................................
+# # CREATING A REUSABLE FUNCTION....................................................
+# # message = input(">")
+# # words = message.split(" ")
+# # emojis = {
+# #     ":)": "😁",
+# #     ":(": "😒"
+# # }
+# # output = ""
+# # for word in words:
+# #    output += emojis.get(word, word) + " "
+# # print(output)
+# # we want to reorganize this code into a function. we want to extract a funtion in this code. because the algorithm for converting the smiling faces into emojis is something that we would want to use in alot of different other applications, the lines from words to output above belong to our algorithm. we should put them in a separate function.
+# #our funtionss should not include receiving input and printing output as in the code above
+# def emoji_converter(message):
+#     words = message.split(" ")
+#     emojis = {
+#         ":)": "😁",
+#         ":(": "😒"
+#     }
+#     output = ""
+#     for word in words:
+#         output += emojis.get(word, word) + " "
+#     return output
+    
+
+# message = input(">")
+# print(emoji_converter(message))
+
+
+# # EXCEPTIONS- HOW TO HANDLE ERRORS IN THE INPUT FUNCTION...........................
+    
+# # age = int(input("Age: "))
+# # print(age)#when we enter a numerical value the program terminates successfully with no errors but when when we input a different value that is not a number it shows a valueError: invalid literal for int() with base 10:
+# # this message tells us that the input does not have a valid whole number that can be converted to an integer.
+# # to print a proper error message we use try accept to handle errors
+# try:
+#     age = int(input("Age: "))
+#     print(age)
+# except ValueError:#we added a type of error that our program may encounter(value error)
+#     print("Invalid value")#we are instructing our program to run the error message instead of crushing our program. this error is an exception. 
+# #An exception is the kind of error that crushes our program.
+# try:
+#     age = int(input("Age: "))
+#     income = 20000
+#     risk = income / age#when we print age (0) we get a zero division error since we cannot divide a number by zero. we  need another exception of type zerodivision error
+#     print(age)
+# except ValueError:
+#     print("Invalid value")
+# except ZeroDivisionError:
+#     print("Age cannot be zero")
+# # as a good programmer we should always anticipate these kind of errors and handle the maccordingly using exception
+
+# COMMENTS.....................................................................
+# comments are ignored
+# we can use them as reminders to fix things or communicate with other developers
+# too much comments are not good
+# use them to explain why's and how's not what's
 
 
 
+# # CLASSES.....................................................................
+# # classes are extremely important in python
+# # used to define new types eg numbers, strings, booleans, lists, dictionaries, tuples
+# # classes are therefore used to define new types to model real concepts eg. shopping cart, cars
 
+# # start by defining a class using class keyword
+# # we give the class a name
+# # in naming our classes we use the Pascal naming convention eg class EmailClient
+# class Point:
+#     def move(self):
+#         print("move")
 
+#     def draw(self):
+#         print("draw")
 
+# # object is the instance of a class. class simply defines a blueprint or template for creating our object. Object are the actual instances based on that blueprint
 
+# # to create an object we type out the name of our class and call it like a function
+# point1 = Point()
+# # the dot operator has the two methods that we defined draw, and move and other magic methods
+# point1.draw()#by running this program dra is printed in the terminal
 
+# # other than methods these objects can have attributes. they are like variables that belong to a particular object.
+# point1.x = 10
+# point1.y = 20
+# # print(point1.x)#these prints out the x coordinates in the terminal
 
+# # each object is a different instance of our first object
+# # we can create another object
+# point2 = Point()
+# # when we print(point2.x) we get a tributeError because point 2 does not have an attribute called (x)
+# point2.x = 1
+# print(point2.x)
 
+# # RECAP
+# # we use classes to define new types, these classes can have methods that can be defined anywhere inside our class eg move, draw, and also have attributes that can be set anywhere in our programs
 
+# CONSTRUCTORS.....................................................................
+# 
 
 
 
