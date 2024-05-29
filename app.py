@@ -805,12 +805,40 @@
 # # RECAP
 # # we use classes to define new types, these classes can have methods that can be defined anywhere inside our class eg move, draw, and also have attributes that can be set anywhere in our programs
 
-# CONSTRUCTORS.....................................................................
-# 
+# # CONSTRUCTORS.....................................................
+# # it is possible to have a point object without the x and y coordinates as in the case above. that will not work unless we know where that point is located.
+# #the problem is, we get an attribute Error stating point object has no attribute called x
+# # a constructor is function that gets called at the time of creating an object
+# # 
+
+# class Point:
+#     def __init__(self, x, y):#parameters x, and y passed alongside self
+#         self.x = x #we use self to reference the current object and set x attribute to the x argument passed in this function
+#         self.y = y#referene to the y object(coordinate)
+#     def move(self):
+#         print("move")
+#     def draw(self):
+#         print("draw")
+# point = Point(10, 20)#here we are creating an object point passing the value 10 and 20 which are the x and y coordinates initialized. therefore on the top we define a new function using the __init__(initialized). we pass the parameters (self, x, y)
+
+# point.x = 11# to change/update the x value
+# print(point.x)
 
 
 
+# class Person:
+#     def __init__(self, name):
+#         self.name = name
+#     def talk(self):
+#         print(f"Hi I am {self.name}")
 
+# john = Person("John Smith")
+# john.talk()
+
+# bob = Person("Bob Smith")
+# bob.talk()
+
+# INHERITANCE...................................................
 
 
 
